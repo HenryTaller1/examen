@@ -17,13 +17,13 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @PutMapping("/editar/{id}")
+    @PutMapping("/registrar")
     public ResponseEntity<String> registrar(@RequestBody UserDto userDto) {
 
         User user=new User();
         user.setNombre(userDto.nombre);
         user.setUsername(userDto.username);
-        user.setUsername(userDto.password);
+        user.setPassword(userDto.password);
         user.setFechaRegistro(LocalDateTime.now());
 
         userRepository.save(user);
